@@ -27,3 +27,9 @@ export const patchArticleVoteByID = (id, votes) => {
     return res.data.article;
   });
 };
+
+export const getCommentByArticleID = (id) => {
+  return api.get(`/articles/${id}/comments`).then((res) => {
+    return res.data;
+  });
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import Comments from "./Comments";
 import "./style/SingleArticle.css";
 import Votes from "./Votes";
 
@@ -19,6 +20,7 @@ export default function SingleArticle({ singleArticle }) {
       <h4>Date: {formatDate(created_at)}</h4>
       <Votes votes={votes} article_id={article_id} />
       <p className="text">{body}</p>
+      <Comments />
     </div>
   );
 }

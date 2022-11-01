@@ -1,0 +1,10 @@
+.single_comment {
+  background-color: rgb(49, 40, 29);
+  color: rgb(161, 225, 201);
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.text {
+  font-size: larger;
+}
