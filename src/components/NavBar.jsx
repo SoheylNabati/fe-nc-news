@@ -5,17 +5,17 @@ import "./style/NavBar.css";
 export default function NavBar() {
   return (
     <nav className="nav-bar">
-      <Link to="/home" className="site-logo">
+      <Link to="/" className="site-logo">
         Home
       </Link>
       <ul>
         <li>
-          <Link to="/articles_page" className="nav">
+          <Link to="/articles" className="nav">
             Articles
           </Link>
         </li>
         <li>
-          <Link to="/topics_page" className="nav">
+          <Link to="/topics" className="nav">
             Topics
           </Link>
         </li>

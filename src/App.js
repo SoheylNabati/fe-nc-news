@@ -3,14 +3,17 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import ArticlesPage from "./pages/ArticlesPage";
+import TopicsPage from "./pages/TopicsPage";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/articles_page" element={<ArticlesPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
+        <Route path="/topics" element={<TopicsPage />} />
+        <Route path="/articles/:topic" element={<ArticlesPage />} />
       </Routes>
     </div>
   );
