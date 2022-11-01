@@ -1,0 +1,9 @@
+.articleCard {
+  background-color: rgb(86, 53, 42);
+  margin: 3rem;
+}
+
+.Link {
+  text-decoration: none;
+  color: rgb(255, 247, 234);
+}
