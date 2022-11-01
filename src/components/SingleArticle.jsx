@@ -1,8 +1,10 @@
 import React from "react";
 import "./style/SingleArticle.css";
+import Votes from "./Votes";
 
 export default function SingleArticle({ singleArticle }) {
-  const { title, topic, author, body, created_at, votes } = singleArticle;
+  const { title, topic, author, body, created_at, votes, article_id } =
+    singleArticle;
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "numeric", day: "numeric" };
@@ -15,7 +17,7 @@ export default function SingleArticle({ singleArticle }) {
       <h3>Topic: {topic}</h3>
       <h3>Author: {author}</h3>
       <h4>Date: {formatDate(created_at)}</h4>
-      <h4>Votes: {votes}</h4>
+      <Votes votes={votes} article_id={article_id} />
       <p className="text">{body}</p>
     </div>
   );
