@@ -33,3 +33,7 @@ export const getCommentByArticleID = (id) => {
     return res.data;
   });
 };
+
+export const postCommentByArticleID = (id, comment) => {
+  return api.post(`/articles/${id}/comments`, comment);
+};

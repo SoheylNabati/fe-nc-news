@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentByArticleID } from "../api";
 import CommentCard from "./CommentCard";
+import PostComment from "./PostComment";
 
 export default function Comments() {
+  const [post, setPost] = useState(false);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const { article_id } = useParams();
@@ -11,12 +13,19 @@ export default function Comments() {
     setLoading(true);
     getCommentByArticleID(article_id).then(({ comments }) => {
       setComments(comments);
-      setLoading(false);
+      setTimeout(() => setLoading(false), 1000);
     });
-  }, [article_id]);
-  if (loading) return <h2>loading...</h2>;
+  }, [article_id, post]);
+  if (loading)
+    return (
+      <div>
+        <PostComment setPost={setPost} />
+        <h2>loading comments...</h2>
+      </div>
+    );
   return (
     <div>
+      <PostComment setPost={setPost} />
       {comments.map((comment, i) => {
         return <CommentCard key={comment.comment_id} comment={comment} i={i} />;
       })}

@@ -1,4 +1,5 @@
 import React from "react";
+// eslint-disable-next-line
 import Comments from "./style/Comments.css";
 
 export default function CommentCard({ comment, i }) {
