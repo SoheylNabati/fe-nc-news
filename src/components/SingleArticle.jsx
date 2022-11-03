@@ -9,6 +9,16 @@ export default function SingleArticle({ singleArticle }) {
   if (user) loggedIn = <h3>you are logged in as {user}</h3>;
   const { title, topic, author, body, created_at, votes, article_id } =
     singleArticle;
+  const {
+    title,
+    topic,
+    author,
+    body,
+    created_at,
+    votes,
+    article_id,
+    comment_count,
+  } = singleArticle;
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "numeric", day: "numeric" };
@@ -22,6 +32,7 @@ export default function SingleArticle({ singleArticle }) {
       <h3>Author: {author}</h3>
       <h4>Date: {formatDate(created_at)}</h4>
       <Votes votes={votes} article_id={article_id} />
+      <h4>number of comments: {comment_count}</h4>
       <p className="text">{body}</p>
       {loggedIn}
       <Comments user={user} />
