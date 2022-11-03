@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Comments from "./Comments";
 import "./style/SingleArticle.css";
 import Votes from "./Votes";
 
 export default function SingleArticle({ singleArticle }) {
+  const [user, setUser] = useState("grumpy19");
+  let loggedIn;
+  if (user) loggedIn = <h3>you are logged in as {user}</h3>;
   const {
     title,
     topic,
@@ -29,7 +32,8 @@ export default function SingleArticle({ singleArticle }) {
       <Votes votes={votes} article_id={article_id} />
       <h4>number of comments: {comment_count}</h4>
       <p className="text">{body}</p>
-      <Comments />
+      {loggedIn}
+      <Comments user={user} />
     </div>
   );
 }
