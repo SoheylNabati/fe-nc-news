@@ -9,13 +9,16 @@ export default function ArticlesPage() {
   const [sort, setSort] = useState("created_at");
   const [loading, isLoading] = useState(true);
   const { topic } = useParams();
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
     isLoading(true);
-    getArticles(topic, sort, order).then(({ articles }) => {
-      setArticles(articles);
-      isLoading(false);
-    });
+    getArticles(topic, sort, order)
+      .then(({ articles }) => {
+        setArticles(articles);
+        isLoading(false);
+      })
+      .catch((err) => setErr(err));
   }, [topic, sort, order]);
 
   const handleOrder = (e) => {
@@ -25,6 +28,7 @@ export default function ArticlesPage() {
     setSort(e.target.value);
   };
 
+  if (err) return <h2>Topic Doesnt Exist</h2>;
   if (loading) return <h2>loading...</h2>;
   return (
     <div>
