@@ -31,7 +31,7 @@ export default function ArticlesPage() {
       <h2>click on article to read more</h2>
       <form>
         <label htmlFor="sort_by">Sort By </label>
-        <select id="sort_by" onChange={handleSort}>
+        <select value={sort} id="sort_by" onChange={handleSort}>
           <option value="created_at">Date</option>
           <option value="title">Title</option>
           <option value="author">Author</option>
@@ -41,7 +41,7 @@ export default function ArticlesPage() {
           <option value="comment_count">Comment Count</option>
         </select>
         <label htmlFor="order">Order </label>
-        <select id="order" onChange={handleOrder}>
+        <select value={order} id="order" onChange={handleOrder}>
           <option value="DESC">descending</option>
           <option value="ASC">Ascending</option>
         </select>
