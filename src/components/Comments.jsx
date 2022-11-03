@@ -4,7 +4,7 @@ import { getCommentByArticleID } from "../api";
 import CommentCard from "./CommentCard";
 import PostComment from "./PostComment";
 
-export default function Comments() {
+export default function Comments({ user }) {
   const [post, setPost] = useState(false);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,14 @@ export default function Comments() {
     <div>
       <PostComment setPost={setPost} />
       {comments.map((comment, i) => {
-        return <CommentCard key={comment.comment_id} comment={comment} i={i} />;
+        return (
+          <CommentCard
+            key={comment.comment_id}
+            comment={comment}
+            i={i}
+            user={user}
+          />
+        );
       })}
     </div>
   );
