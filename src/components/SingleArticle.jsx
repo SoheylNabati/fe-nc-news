@@ -7,8 +7,16 @@ export default function SingleArticle({ singleArticle }) {
   const [user, setUser] = useState("grumpy19");
   let loggedIn;
   if (user) loggedIn = <h3>you are logged in as {user}</h3>;
-  const { title, topic, author, body, created_at, votes, article_id } =
-    singleArticle;
+  const {
+    title,
+    topic,
+    author,
+    body,
+    created_at,
+    votes,
+    article_id,
+    comment_count,
+  } = singleArticle;
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "numeric", day: "numeric" };
