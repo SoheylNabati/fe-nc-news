@@ -11,10 +11,13 @@ export default function Comments({ user }) {
   const { article_id } = useParams();
   useEffect(() => {
     setLoading(true);
-    getCommentByArticleID(article_id).then(({ comments }) => {
-      setComments(comments);
-      setTimeout(() => setLoading(false), 1000);
-    });
+    getCommentByArticleID(article_id)
+      .then(({ comments }) => {
+        setComments(comments);
+      })
+      .then(() => {
+        setLoading(false);
+      });
   }, [article_id, post]);
   if (loading)
     return (

@@ -41,9 +41,7 @@ export const postCommentByArticleID = (id, comment) => {
 };
 
 export const deleteCommentByID = (comment_id) => {
-  return api
-    .delete(`/comments/${comment_id}`, { params: { comment_id } })
-    .then((res) => {
-      return res;
-    });
+  return api.delete(`/comments/${comment_id}`).then((res) => {
+    return res;
+  });
 };

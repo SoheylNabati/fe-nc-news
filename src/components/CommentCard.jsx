@@ -17,6 +17,23 @@ export default function CommentCard({ comment, i, user }) {
         <h3>comment deleted</h3>
       </div>
     );
+  if (user === author)
+    return (
+      <div className="single_comment">
+        <h4>
+          Comment no: {i + 1} By {author}:
+        </h4>
+        <h5>Date: {formatDate(created_at)}</h5>
+        <p className="text">{body}</p>
+        <h5>Votes: {votes}</h5>
+        <DeleteComment
+          user={user}
+          comment_id={comment_id}
+          author={author}
+          setCommentExists={setCommentExists}
+        />
+      </div>
+    );
   return (
     <div className="single_comment">
       <h4>
@@ -25,12 +42,6 @@ export default function CommentCard({ comment, i, user }) {
       <h5>Date: {formatDate(created_at)}</h5>
       <p className="text">{body}</p>
       <h5>Votes: {votes}</h5>
-      <DeleteComment
-        user={user}
-        comment_id={comment_id}
-        author={author}
-        setCommentExists={setCommentExists}
-      />
     </div>
   );
 }
