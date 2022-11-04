@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import ArticlesPage from "./pages/ArticlesPage";
 import TopicsPage from "./pages/TopicsPage";
 import SingleArticlePage from "./pages/SingleArticlePage";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           path="/single_article/:article_id"
           element={<SingleArticlePage />}
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
